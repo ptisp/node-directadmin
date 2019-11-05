@@ -6,7 +6,7 @@ var config = {
     port: process.env.DIRECTADMIN_PORT || '2222',
     package: 'parking2_webbox',
     ip: '130.185.80.95',
-    domain: 'parking2.ptisp.pt'
+    domain: 'teste.te'
 };
 
 module.exports = {
