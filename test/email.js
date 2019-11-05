@@ -9,15 +9,17 @@ describe('email', function () {
         this.timeout(15000)
 
         var opts = {
-            user: 'teste1',
+            user: 'teste',
             passwd: '123456',
             passwd2: '123456',
             quota: 10,
             limit: 10
         }
-        client.email.createPopAccounts('nodeapi.ptisp.pt', opts, function (err, data) {
+        client.email.createPopAccounts(client.config.domain, opts, function (err, data) {
+            console.log(err);
             expect(err).to.be.null;
-            client.email.deletePopAccounts('nodeapi.ptisp.pt', opts.user, function (err, data) {
+            client.email.deletePopAccounts(client.config.domain, opts.user, function (err, data) {
+                console.log(err);
                 expect(err).to.be.null;
                 done();
             });
@@ -28,23 +30,26 @@ describe('email', function () {
         this.timeout(15000)
 
         var opts = {
-            user: 'teste1',
+            user: 'teste',
             passwd: '123456',
             passwd2: '123456',
             quota: 10,
             limit: 10
         }
-        client.email.createPopAccounts('nodeapi.ptisp.pt', opts, function (err, data) {
+        client.email.createPopAccounts(client.config.domain, opts, function (err, data) {
+            console.log(err);
             expect(err).to.be.null;
             opts = {
-                user: 'teste1',
+                user: 'teste',
                 oldpassword: '123456',
                 password1: '1234567',
                 password2: '1234567'
             }
-            client.email.updatePasswordPopAccounts('nodeapi.ptisp.pt', opts, function (err, data) {
+            client.email.updatePasswordPopAccounts(client.config.domain, opts, function (err, data) {
+                console.log(err);
                 expect(err).to.be.null;
-                client.email.deletePopAccounts('nodeapi.ptisp.pt', opts.user, function (err, data) {
+                client.email.deletePopAccounts(client.config.domain, opts.user, function (err, data) {
+                    console.log(err);
                     expect(err).to.be.null;
                     done();
                 });

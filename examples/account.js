@@ -39,7 +39,7 @@ daexample.account.deleteAccounts(opts, function (err, data) {
     }
 });  */
 
-daexample.account.getListUserAccounts('ptispapi', function (err, data) {
+daexample.account.getListUserAccounts('teste', function (err, data) {
     if (err) {
         console.log('ERROR');
         console.log(err);
@@ -48,7 +48,26 @@ daexample.account.getListUserAccounts('ptispapi', function (err, data) {
     }
 });
 
-daexample.account.getListAdminAccounts(function (err, data) {
+/* daexample.account.getListAdminAccounts(function (err, data) {
+    if (err) {
+        console.log('ERROR');
+        console.log(err);
+    } else {
+        console.log(data);
+    }
+}); */
+
+
+/* daexample.account.getListAllUserAccounts(function (err, data) {
+    if (err) {
+        console.log('ERROR');
+        console.log(err);
+    } else {
+        console.log(data);
+    }
+}); */
+
+/* daexample.account.getListResellerAccounts(function (err, data) {
     if (err) {
         console.log('ERROR');
         console.log(err);
@@ -56,7 +75,6 @@ daexample.account.getListAdminAccounts(function (err, data) {
         console.log(data);
     }
 });
-
 
 daexample.account.getListAllUserAccounts(function (err, data) {
     if (err) {
@@ -65,25 +83,7 @@ daexample.account.getListAllUserAccounts(function (err, data) {
     } else {
         console.log(data);
     }
-});
-
-daexample.account.getListResellerAccounts(function (err, data) {
-    if (err) {
-        console.log('ERROR');
-        console.log(err);
-    } else {
-        console.log(data);
-    }
-});
-
-daexample.account.getListAllUserAccounts(function (err, data) {
-    if (err) {
-        console.log('ERROR');
-        console.log(err);
-    } else {
-        console.log(data);
-    }
-});
+}); */
 
 
 /* var opts = {

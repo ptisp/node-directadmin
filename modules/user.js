@@ -263,6 +263,9 @@ User.prototype.getUserDomains = function (user, callback) {
  * 
  * Add Domain Redirect: - https://www.directadmin.com/api.php
  * @param settings String 
+ * @param settings.domain String
+ * @param settings.from String
+ * @param settings.to String
  * @param callback
  */
 User.prototype.addDomainRedirect = function (settings, callback) {
@@ -285,7 +288,7 @@ User.prototype.addDomainRedirect = function (settings, callback) {
 /**
  * 
  * Get Domain Redirect: - https://www.directadmin.com/api.php
- * @param settings String 
+ * @param domain String 
  * @param callback
  */
 User.prototype.getDomainRedirect = function (domain, callback) {
