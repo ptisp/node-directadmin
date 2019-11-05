@@ -259,5 +259,83 @@ User.prototype.getUserDomains = function (user, callback) {
     utils.modem(createOptions, callback);
 };
 
+/**
+ * 
+ * Add Domain Redirect: - https://www.directadmin.com/api.php
+ * @param settings String 
+ * @param callback
+ */
+User.prototype.addDomainRedirect = function (settings, callback) {
+    var options = {
+        action: 'add'
+    };
+
+    options = extend(options, settings);
+
+    var createOptions = {
+        command: '/CMD_API_REDIRECT',
+        method: 'POST',
+        client: this,
+        body: options
+    };
+
+    utils.modem(createOptions, callback);
+};
+
+/**
+ * 
+ * Get Domain Redirect: - https://www.directadmin.com/api.php
+ * @param settings String 
+ * @param callback
+ */
+User.prototype.getDomainRedirect = function (domain, callback) {
+    var options = {};
+
+    if(domain != '')
+    {
+        options = {
+            domain: domain
+        };
+    }
+
+    options = extend(options);
+
+    var createOptions = {
+        command: '/CMD_API_REDIRECT',
+        method: 'POST',
+        client: this,
+        body: options
+    };
+
+    utils.modem(createOptions, callback);
+};
+
+/**
+ * 
+ * Delete Domain Redirect: - https://www.directadmin.com/api.php
+ * @param settings Object
+ * @param settings.domain String
+ * @param settings.select0 String
+ * @param settings.select1 String
+ * @param settings.selectX String
+ * @param callback
+ */
+User.prototype.deleteDomainRedirect = function (settings, callback) {
+    var options = {
+        action: 'delete'
+    };
+
+    options = extend(options, settings);
+
+    var createOptions = {
+        command: '/CMD_API_REDIRECT',
+        method: 'POST',
+        client: this,
+        body: options
+    };
+
+    utils.modem(createOptions, callback);
+};
+
 
 module.exports = User;
