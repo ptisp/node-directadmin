@@ -340,5 +340,29 @@ User.prototype.deleteDomainRedirect = function (settings, callback) {
     utils.modem(createOptions, callback);
 };
 
+/**
+ * 
+ * Delete Domain Redirect: - https://www.directadmin.com/api.php
+ * @param domain String
+ * @param callback
+ */
+User.prototype.getUserByDomain = function (domain, callback) {
+    var options = {
+        domain: domain
+    };
+
+    options = extend(options);
+
+    var createOptions = {
+        command: '/CMD_API_DOMAIN_OWNERS',
+        method: 'POST',
+        client: this,
+        body: options
+    };
+
+    utils.modem(createOptions, callback);
+};
+
+
 
 module.exports = User;

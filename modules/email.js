@@ -55,6 +55,33 @@ Email.prototype.createPopAccounts = function (domain, emailSettings, callback) {
     utils.modem(createOptions, callback);
 };
 
+
+/**
+ * Set Virtual Email Password: - https://www.directadmin.com/api.php 
+ * @param emailSettings Object
+ * @param emailSettings.user String
+ * @param emailSettings.passwd String
+ * @param emailSettings.passwd2 String
+ * @param emailSettings.quota Int
+ * @param callback
+ */
+Email.prototype.updatePopAccountsPassword = function (domain, emailSettings, callback) {
+    var options = {
+        action: 'modify',
+        domain: domain
+    };
+    options = extend(options, emailSettings);
+
+    var createOptions = {
+        command: '/CMD_API_POP',
+        method: 'POST',
+        client: this,
+        body: options
+    };
+
+    utils.modem(createOptions, callback);
+};
+
 /**
  * Set Virtual Email Password: - https://www.directadmin.com/api.php 
  * @param emailSettings Object

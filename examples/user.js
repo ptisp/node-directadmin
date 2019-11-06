@@ -22,7 +22,7 @@ var opts = {
     }
 }); */
 
-daexample.user.getDomainRedirect('parking2.ptisp.pt', function (err, data) {
+/* daexample.user.getDomainRedirect('parking2.ptisp.pt', function (err, data) {
     if (err) {
         console.log('ERROR');
         console.log(err);
@@ -37,6 +37,15 @@ var optsDelete = {
 }
 
 daexample.user.deleteDomainRedirect(optsDelete, function (err, data) {
+    if (err) {
+        console.log('ERROR');
+        console.log(err);
+    } else {
+        console.log(data);
+    }
+}); */
+
+daexample.user.getUserByDomain('teste.te', function (err, data) {
     if (err) {
         console.log('ERROR');
         console.log(err);
