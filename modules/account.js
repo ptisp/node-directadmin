@@ -2,7 +2,7 @@ var utils = require('../lib/utils');
 var extend = utils.extend;
 
 var Account = function (config) {
-    this.config = config;
+  this.config = config;
 };
 
 /**
@@ -16,19 +16,19 @@ var Account = function (config) {
  * @param callback
  */
 Account.prototype.createAdminAccount = function (userSettings, callback) {
-    var options = {
-        action: 'create'
-    };
-    options = extend(options, userSettings);
+  var options = {
+    action: 'create'
+  };
+  options = extend(options, userSettings);
 
-    var createOptions = {
-        command: '/CMD_API_ACCOUNT_ADMIN',
-        method: 'POST',
-        client: this,
-        body: options
-    };
+  var createOptions = {
+    command: '/CMD_API_ACCOUNT_ADMIN',
+    method: 'POST',
+    client: this,
+    body: options
+  };
 
-    utils.modem(createOptions, callback);
+  utils.modem(createOptions, callback);
 };
 
 /**
@@ -45,20 +45,20 @@ Account.prototype.createAdminAccount = function (userSettings, callback) {
  * @param callback
  */
 Account.prototype.createResellerAccount = function (userSettings, callback) {
-    var options = {
-        action: 'create',
-        add: 'Submit'
-    };
-    options = extend(options, userSettings);
+  var options = {
+    action: 'create',
+    add: 'Submit'
+  };
+  options = extend(options, userSettings);
 
-    var createOptions = {
-        command: '/CMD_ACCOUNT_RESELLER',
-        method: 'POST',
-        client: this,
-        body: options
-    };
+  var createOptions = {
+    command: '/CMD_ACCOUNT_RESELLER',
+    method: 'POST',
+    client: this,
+    body: options
+  };
 
-    utils.modem(createOptions, callback);
+  utils.modem(createOptions, callback);
 };
 
 /**
@@ -107,20 +107,20 @@ Account.prototype.createResellerAccount = function (userSettings, callback) {
  * @param callback
  */
 Account.prototype.createCustomResellerAccount = function (userSettings, callback) {
-    var options = {
-        action: 'create',
-        add: 'Submit'
-    };
-    options = extend(options, userSettings);
+  var options = {
+    action: 'create',
+    add: 'Submit'
+  };
+  options = extend(options, userSettings);
 
-    var createOptions = {
-        command: '/CMD_ACCOUNT_RESELLER',
-        method: 'POST',
-        client: this,
-        body: options
-    };
+  var createOptions = {
+    command: '/CMD_ACCOUNT_RESELLER',
+    method: 'POST',
+    client: this,
+    body: options
+  };
 
-    utils.modem(createOptions, callback);
+  utils.modem(createOptions, callback);
 };
 
 /**
@@ -137,20 +137,20 @@ Account.prototype.createCustomResellerAccount = function (userSettings, callback
  * @param callback
  */
 Account.prototype.createUserAccount = function (userSettings, callback) {
-    var options = {
-        action: 'create',
-        add: 'Submit'
-    };
-    options = extend(options, userSettings);
+  var options = {
+    action: 'create',
+    add: 'Submit'
+  };
+  options = extend(options, userSettings);
 
-    var createOptions = {
-        command: '/CMD_API_ACCOUNT_USER',
-        method: 'POST',
-        client: this,
-        body: options
-    };
+  var createOptions = {
+    command: '/CMD_API_ACCOUNT_USER',
+    method: 'POST',
+    client: this,
+    body: options
+  };
 
-    utils.modem(createOptions, callback);
+  utils.modem(createOptions, callback);
 };
 
 /**
@@ -199,20 +199,20 @@ Account.prototype.createUserAccount = function (userSettings, callback) {
  * @param callback
  */
 Account.prototype.createCustomUserAccount = function (userSettings, callback) {
-    var options = {
-        action: 'create',
-        add: 'Submit'
-    };
-    options = extend(options, userSettings);
+  var options = {
+    action: 'create',
+    add: 'Submit'
+  };
+  options = extend(options, userSettings);
 
-    var createOptions = {
-        command: '/CMD_API_ACCOUNT_USER',
-        method: 'POST',
-        client: this,
-        body: options
-    };
+  var createOptions = {
+    command: '/CMD_API_ACCOUNT_USER',
+    method: 'POST',
+    client: this,
+    body: options
+  };
 
-    utils.modem(createOptions, callback);
+  utils.modem(createOptions, callback);
 };
 
 /**
@@ -224,20 +224,20 @@ Account.prototype.createCustomUserAccount = function (userSettings, callback) {
  * @param callback
  */
 Account.prototype.deleteAccounts = function (users, callback) {
-    var options = {
-        confirmed: 'Confirm',
-        delete: 'yes'
-    };
-    options = extend(options, users);
+  var options = {
+    confirmed: 'Confirm',
+    delete: 'yes'
+  };
+  options = extend(options, users);
 
-    var createOptions = {
-        command: '/CMD_API_SELECT_USERS',
-        method: 'POST',
-        client: this,
-        body: options
-    };
+  var createOptions = {
+    command: '/CMD_API_SELECT_USERS',
+    method: 'POST',
+    client: this,
+    body: options
+  };
 
-    utils.modem(createOptions, callback);
+  utils.modem(createOptions, callback);
 };
 
 /**
@@ -249,20 +249,20 @@ Account.prototype.deleteAccounts = function (users, callback) {
  * @param callback
  */
 Account.prototype.suspendAccounts = function (users, callback) {
-    var options = {
-        location: 'CMD_SELECT_USERS',
-        suspend: 'Suspend'
-    };
-    options = extend(options, users);
+  var options = {
+    location: 'CMD_SELECT_USERS',
+    suspend: 'Suspend'
+  };
+  options = extend(options, users);
 
-    var createOptions = {
-        command: '/CMD_API_SELECT_USERS',
-        method: 'POST',
-        client: this,
-        body: options
-    };
+  var createOptions = {
+    command: '/CMD_API_SELECT_USERS',
+    method: 'POST',
+    client: this,
+    body: options
+  };
 
-    utils.modem(createOptions, callback);
+  utils.modem(createOptions, callback);
 };
 
 /**
@@ -274,20 +274,20 @@ Account.prototype.suspendAccounts = function (users, callback) {
  * @param callback
  */
 Account.prototype.unsuspendAccounts = function (users, callback) {
-    var options = {
-        location: 'CMD_SELECT_USERS',
-        suspend: 'Unsuspend'
-    };
-    options = extend(options, users);
+  var options = {
+    location: 'CMD_SELECT_USERS',
+    suspend: 'Unsuspend'
+  };
+  options = extend(options, users);
 
-    var createOptions = {
-        command: '/CMD_API_SELECT_USERS',
-        method: 'POST',
-        client: this,
-        body: options
-    };
+  var createOptions = {
+    command: '/CMD_API_SELECT_USERS',
+    method: 'POST',
+    client: this,
+    body: options
+  };
 
-    utils.modem(createOptions, callback);
+  utils.modem(createOptions, callback);
 };
 
 /**
@@ -297,24 +297,23 @@ Account.prototype.unsuspendAccounts = function (users, callback) {
  * @param callback
  */
 Account.prototype.getListUserAccounts = function (reseller, callback) {
-    var options = {};
-    if(reseller != '')
-    {
-        options = {
-            reseller: reseller
-        };
-    }
-    
-    options = extend(options);
-
-    var createOptions = {
-        command: '/CMD_API_SHOW_USERS',
-        method: 'POST',
-        client: this,
-        body: options
+  var options = {};
+  if (reseller != '') {
+    options = {
+      reseller: reseller
     };
+  }
 
-    utils.modem(createOptions, callback);
+  options = extend(options);
+
+  var createOptions = {
+    command: '/CMD_API_SHOW_USERS',
+    method: 'POST',
+    client: this,
+    body: options
+  };
+
+  utils.modem(createOptions, callback);
 };
 
 /**
@@ -323,18 +322,18 @@ Account.prototype.getListUserAccounts = function (reseller, callback) {
  * @param callback
  */
 Account.prototype.getListResellerAccounts = function (callback) {
-    var options = {};
-    
-    options = extend(options);
+  var options = {};
 
-    var createOptions = {
-        command: '/CMD_API_SHOW_RESELLERS',
-        method: 'POST',
-        client: this,
-        body: options
-    };
+  options = extend(options);
 
-    utils.modem(createOptions, callback);
+  var createOptions = {
+    command: '/CMD_API_SHOW_RESELLERS',
+    method: 'POST',
+    client: this,
+    body: options
+  };
+
+  utils.modem(createOptions, callback);
 };
 
 /**
@@ -343,18 +342,18 @@ Account.prototype.getListResellerAccounts = function (callback) {
  * @param callback
  */
 Account.prototype.getListAdminAccounts = function (callback) {
-    var options = {};
-    
-    options = extend(options);
+  var options = {};
 
-    var createOptions = {
-        command: '/CMD_API_SHOW_ADMINS',
-        method: 'POST',
-        client: this,
-        body: options
-    };
+  options = extend(options);
 
-    utils.modem(createOptions, callback);
+  var createOptions = {
+    command: '/CMD_API_SHOW_ADMINS',
+    method: 'POST',
+    client: this,
+    body: options
+  };
+
+  utils.modem(createOptions, callback);
 };
 
 /**
@@ -363,18 +362,18 @@ Account.prototype.getListAdminAccounts = function (callback) {
  * @param callback
  */
 Account.prototype.getListAllUserAccounts = function (callback) {
-    var options = {};
-    
-    options = extend(options);
+  var options = {};
 
-    var createOptions = {
-        command: '/CMD_API_SHOW_ALL_USERS',
-        method: 'POST',
-        client: this,
-        body: options
-    };
+  options = extend(options);
 
-    utils.modem(createOptions, callback);
+  var createOptions = {
+    command: '/CMD_API_SHOW_ALL_USERS',
+    method: 'POST',
+    client: this,
+    body: options
+  };
+
+  utils.modem(createOptions, callback);
 };
 
 /**
@@ -418,19 +417,19 @@ Account.prototype.getListAllUserAccounts = function (callback) {
  * @param callback
  */
 Account.prototype.updateUserAccount = function (userSettings, callback) {
-    var options = {
-        action: 'customize'
-    };
-    options = extend(options, userSettings);
+  var options = {
+    action: 'customize'
+  };
+  options = extend(options, userSettings);
 
-    var createOptions = {
-        command: '/CMD_API_MODIFY_USER',
-        method: 'POST',
-        client: this,
-        body: options
-    };
+  var createOptions = {
+    command: '/CMD_API_MODIFY_USER',
+    method: 'POST',
+    client: this,
+    body: options
+  };
 
-    utils.modem(createOptions, callback);
+  utils.modem(createOptions, callback);
 };
 
 /**
@@ -443,18 +442,95 @@ Account.prototype.updateUserAccount = function (userSettings, callback) {
  * @param callback
  */
 Account.prototype.updateUserPassword = function (userInfo, callback) {
-    var options = {};
-    
-    options = extend(options, userInfo);
+  var options = {};
 
-    var createOptions = {
-        command: '/CMD_API_USER_PASSWD',
-        method: 'POST',
-        client: this,
-        body: options
-    };
+  options = extend(options, userInfo);
 
-    utils.modem(createOptions, callback);
+  var createOptions = {
+    command: '/CMD_API_USER_PASSWD',
+    method: 'POST',
+    client: this,
+    body: options
+  };
+
+  utils.modem(createOptions, callback);
+};
+
+/**
+ * Create FTP Account: - https://www.directadmin.com/api.php
+ * @param ftpSettings Object
+ * @param ftpSettings.domain String
+ * @param ftpSettings.user String
+ * @param ftpSettings.type String
+ * @param ftpSettings.passwd String
+ * @param ftpSettings.passwd2 String
+ * @param callback
+ */
+Account.prototype.createFtpccount = function (ftpSettings, callback) {
+  var options = {
+    action: 'create'
+  };
+  options = extend(options, ftpSettings);
+
+  var createOptions = {
+    command: '/CMD_API_FTP',
+    method: 'POST',
+    client: this,
+    body: options
+  };
+
+  utils.modem(createOptions, callback);
+};
+
+/**
+ * Change FTP Account: - https://www.directadmin.com/api.php
+ * @param ftpSettings Object
+ * @param ftpSettings.domain String
+ * @param ftpSettings.user String
+ * @param ftpSettings.type String
+ * @param ftpSettings.passwd String
+ * @param ftpSettings.passwd2 String
+ * @param callback
+ */
+Account.prototype.updateFtpccount = function (ftpSettings, callback) {
+  var options = {
+    action: 'modify'
+  };
+  options = extend(options, ftpSettings);
+
+  var createOptions = {
+    command: '/CMD_API_FTP',
+    method: 'POST',
+    client: this,
+    body: options
+  };
+
+  utils.modem(createOptions, callback);
+};
+
+/**
+ * Deleting Ftp Account: - https://www.directadmin.com/api.php
+ * @param ftpSettings Object
+ * @param ftpSettings.domain String
+ * @param ftpSettings.select0 String
+ * @param ftpSettings.select1 String
+ * @param ftpSettings.selectX String
+ * @param callback
+ */
+Account.prototype.deleteAccounts = function (ftpSettings, callback) {
+  var options = {
+    action: 'delete'
+  };
+  options = extend(options, users);
+
+  var createOptions = {
+    command: '/CMD_API_FTP',
+    method: 'POST',
+    client: this,
+    body: options
+  };
+
+  utils.modem(createOptions, callback);
 };
 
 module.exports = Account;
