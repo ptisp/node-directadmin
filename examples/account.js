@@ -39,14 +39,32 @@ daexample.account.deleteAccounts(opts, function (err, data) {
     }
 });  */
 
-daexample.account.getListUserAccounts('teste', function (err, data) {
+/* daexample.account.getListUserAccounts('teste', function (err, data) {
     if (err) {
         console.log('ERROR');
         console.log(err);
     } else {
         console.log(data);
     }
-});
+}); */
+
+
+/* var opts = {
+  domain: 'teste.te',
+  user: 'teste',
+  type: 'system',
+  passwd: '12345',
+  passwd2: '12345'
+}
+
+daexample.account.updateFtpccount(opts, function (err, data) {
+  if (err) {
+      console.log('ERROR');
+      console.log(err);
+  } else {
+      console.log(data);
+  }
+}); */
 
 /* daexample.account.getListAdminAccounts(function (err, data) {
     if (err) {
