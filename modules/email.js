@@ -28,6 +28,28 @@ Email.prototype.getListPopAccounts = function (domain, callback) {
 };
 
 /**
+ * Full List Virtual POP Account: - https://www.directadmin.com/api.php
+ * @param domain String 
+ * @param callback
+ */
+Email.prototype.getFullListPopAccounts = function (domain, callback) {
+    var options = {
+        action: 'full_list',
+        domain: domain
+    };
+    options = extend(options);
+
+    var createOptions = {
+        command: '/CMD_API_POP',
+        method: 'POST',
+        client: this,
+        body: options
+    };
+
+    utils.modem(createOptions, callback);
+};
+
+/**
  * Create a Virtual POP Account: - https://www.directadmin.com/api.php
  * @param domain String 
  * @param emailSettings Object

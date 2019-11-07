@@ -13,6 +13,6 @@ daexample.reseller.getResellerIps('',function(err, data){
     console.log('ERROR');
     console.log(err);
   } else {
-    console.log(data);
+    console.log(data.list[0]);
   }
 });
