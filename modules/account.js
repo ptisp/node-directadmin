@@ -517,7 +517,7 @@ Account.prototype.updateFtpccount = function (ftpSettings, callback) {
  * @param ftpSettings.selectX String
  * @param callback
  */
-Account.prototype.deleteAccounts = function (ftpSettings, callback) {
+Account.prototype.deleteFtpAccount = function (ftpSettings, callback) {
   var options = {
     action: 'delete'
   };
