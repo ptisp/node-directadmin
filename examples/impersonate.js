@@ -14,7 +14,7 @@ var daexample = new DIRECTADMIN(config);
 
 }); */
 
-changePassword(daexample, 'teste.te', '123456', function (err, data) {
+changePassword(daexample, 'restaurante-casadosleitoes.pt', 'asd123asd', function (err, data) {
   console.log(err);
   console.log(data);
 })
