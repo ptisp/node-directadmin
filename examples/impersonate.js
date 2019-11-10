@@ -14,10 +14,10 @@ var daexample = new DIRECTADMIN(config);
 
 }); */
 
-changePassword(daexample, 'restaurante-casadosleitoes.pt', 'asd123asd', function (err, data) {
+/* changePassword(daexample, 'restaurante-casadosleitoes.pt', 'asd123asd', function (err, data) {
   console.log(err);
   console.log(data);
-})
+}) */
 
 /* removeRedirect(daexample, 'teste.te', function (err, data) {
     console.log(err);
@@ -48,10 +48,10 @@ changePassword(daexample, 'restaurante-casadosleitoes.pt', 'asd123asd', function
     console.log(err);
     console.log(data);
 }) */
-/*  listEmails(daexample, 'teste.te', function (err, data) {
+listEmails(daexample, 'as24768.net', function (err, data) {
     console.log(err);
     console.log(data);
-}) */
+})
 
 function changePassword(parkingserver, domainname, newpass, callback) {
   _getUserByDomain(parkingserver, domainname, function (err, user) {
@@ -335,6 +335,7 @@ function _loginWithUser(username, parkingserver, callback) {
   }
 
   parkingserver.account.updateUserPassword(opts, function (err, data) {
+    console.log(password);
     if (err) {
       //console.log('ERROR');
       //console.log(err);
