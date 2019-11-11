@@ -154,4 +154,98 @@ Email.prototype.deletePopAccounts = function (domain, user, callback) {
     utils.modem(createOptions, callback);
 };
 
+/**
+ * Create email forwarder: - https://www.directadmin.com/api.php
+ * @param forwarderData Object 
+ * @param forwarderData.domain String
+ * @param forwarderData.user String
+ * @param forwarderData.email String
+ * @param callback
+ */
+Email.prototype.createEmailForwarder = function (forwarderData, callback) {
+  var options = {
+      action: 'create'
+  };
+  options = extend(options, forwarderData);
+
+  var createOptions = {
+      command: '/CMD_API_EMAIL_FORWARDERS',
+      method: 'POST',
+      client: this,
+      body: options
+  };
+
+  utils.modem(createOptions, callback);
+};
+
+/**
+ * List email forwarder: - https://www.directadmin.com/api.php
+ * @param domain String
+ * @param callback
+ */
+Email.prototype.listEmailForwarder = function (domain, callback) {
+  var options = {
+      domain: domain
+  };
+  options = extend(options, forwarderData);
+
+  var createOptions = {
+      command: '/CMD_API_EMAIL_FORWARDERS',
+      method: 'POST',
+      client: this,
+      body: options
+  };
+
+  utils.modem(createOptions, callback);
+};
+
+/**
+ * Update email forwarder: - https://www.directadmin.com/api.php
+ * @param forwarderData Object 
+ * @param forwarderData.domain String
+ * @param forwarderData.user String
+ * @param forwarderData.email String
+ * @param callback
+ */
+Email.prototype.updateEmailForwarder = function (forwarderData, callback) {
+  var options = {
+      action: 'modify'
+  };
+  options = extend(options, forwarderData);
+
+  var createOptions = {
+      command: '/CMD_API_EMAIL_FORWARDERS',
+      method: 'POST',
+      client: this,
+      body: options
+  };
+
+  utils.modem(createOptions, callback);
+};
+
+/**
+ * Delete Email Forwarder - https://www.directadmin.com/api.php
+ * @param forwarderData Object
+ * @param forwarderData.domain String
+ * @param forwarderData.select0 String
+ * @param forwarderData.select1 String
+ * @param forwarderData.selectX String
+ * @param callback
+ */
+Email.prototype.deleteEmailForwarder = function (forwarderData, callback) {
+  var options = {
+    action: 'delete'
+  };
+  options = extend(options, forwarderData);
+
+  var createOptions = {
+    command: '/CMD_API_EMAIL_FORWARDERS',
+    method: 'POST',
+    client: this,
+    body: options
+  };
+
+  utils.modem(createOptions, callback);
+};
+
 module.exports = Email;

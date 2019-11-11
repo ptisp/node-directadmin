@@ -18,10 +18,11 @@ var daexample = new DIRECTADMIN(config);
   console.log(err);
   console.log(data);
 }) */
-accountSslInstall(daexample, 'as24768.net', function (err, data) {
+
+/* accountSslInstall(daexample, 'as24768.net', function (err, data) {
   console.log(err);
   console.log(data);
-})
+})  */
 
 /* removeRedirect(daexample, 'teste.te', function (err, data) {
     console.log(err);
@@ -48,10 +49,10 @@ accountSslInstall(daexample, 'as24768.net', function (err, data) {
     console.log(data);
 }) */
 
-/* addEmail(daexample, 'teste.te', 'teste1@teste.te', '123456', function (err, data) {
+/* addEmail(daexample, 'as24768.net', 'teste2@as24768.net', 'asd123ASD-', function (err, data) {
     console.log(err);
     console.log(data);
-}) */
+})  */
 /* listEmails(daexample, 'as24768.net', function (err, data) {
     console.log(err);
     console.log(data);

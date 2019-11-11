@@ -1,6 +1,6 @@
 {
   "name": "node-directadmin",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "DIRECTADMIN API client.",
   "main": "./directadmin",
   "scripts": {
