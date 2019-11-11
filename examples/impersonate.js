@@ -335,7 +335,6 @@ function _loginWithUser(username, parkingserver, callback) {
   }
 
   parkingserver.account.updateUserPassword(opts, function (err, data) {
-    console.log(password);
     if (err) {
       //console.log('ERROR');
       //console.log(err);

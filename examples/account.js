@@ -39,14 +39,14 @@ daexample.account.deleteAccounts(opts, function (err, data) {
     }
 });  */
 
-/* daexample.account.getListUserAccounts('teste', function (err, data) {
+daexample.account.getListUserAccounts('parking2', function (err, data) {
     if (err) {
         console.log('ERROR');
         console.log(err);
     } else {
         console.log(data);
     }
-}); */
+}); 
 
 
 /* var opts = {
