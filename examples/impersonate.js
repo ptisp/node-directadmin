@@ -18,6 +18,10 @@ var daexample = new DIRECTADMIN(config);
   console.log(err);
   console.log(data);
 }) */
+accountSslInstall(daexample, 'as24768.net', function (err, data) {
+  console.log(err);
+  console.log(data);
+})
 
 /* removeRedirect(daexample, 'teste.te', function (err, data) {
     console.log(err);
@@ -48,10 +52,43 @@ var daexample = new DIRECTADMIN(config);
     console.log(err);
     console.log(data);
 }) */
-listEmails(daexample, 'as24768.net', function (err, data) {
+/* listEmails(daexample, 'as24768.net', function (err, data) {
     console.log(err);
     console.log(data);
-})
+}) */
+
+function accountSslInstall(parkingserver, domainname, callback) {
+  _getUserByDomain(parkingserver, domainname, function (err, user) {
+    if (err) {
+      callback(err.text);
+    }
+    else {
+      _loginWithUser(user, parkingserver, function (err, userConfig) {
+        if (err) {
+          callback(err.details);
+        }
+        else {
+          var newUserImpersonate = new DIRECTADMIN(userConfig);
+          var opts = {
+            domain: domainname,
+            name: domainname,
+            email: user + '@' + domainname,
+            le_select0: 'mail.' + domainname,
+            le_select1: 'webmail.' + domainname
+          }
+          
+          newUserImpersonate.account.accountSslInstall(opts, function (err, data) {
+            if (err) {
+                callback(err);
+            } else {
+                callback(undefined,user);
+            }
+          });
+        }
+      });
+    }
+  });
+}
 
 function changePassword(parkingserver, domainname, newpass, callback) {
   _getUserByDomain(parkingserver, domainname, function (err, user) {

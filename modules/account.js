@@ -533,4 +533,35 @@ Account.prototype.deleteFtpAccounts = function (ftpSettings, callback) {
   utils.modem(createOptions, callback);
 };
 
+/**
+ * Account Ssl Install: - https://www.directadmin.com/api.php
+ * @param domain String
+ * @param accountDetails Object
+ * @param accountDetails.domain String
+ * @param accountDetails.name String
+ * @param accountDetails.email String
+ * @param accountDetails.le_select0 String
+ * @param accountDetails.le_select1 String
+ * @param callback
+ */
+Account.prototype.accountSslInstall = function (accountDetails, callback) {
+  var options = {
+    action: 'save',
+    type: 'create',
+    request: 'letsencrypt',
+    keysize: 4096,
+    encryption: 'sha256'
+  };
+  options = extend(options, accountDetails);
+
+  var createOptions = {
+    command: '/CMD_API_SSL',
+    method: 'POST',
+    client: this,
+    body: options
+  };
+
+  utils.modem(createOptions, callback);
+};
+
 module.exports = Account;
