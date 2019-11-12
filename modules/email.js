@@ -187,7 +187,7 @@ Email.prototype.listEmailForwarder = function (domain, callback) {
   var options = {
       domain: domain
   };
-  options = extend(options, forwarderData);
+  options = extend(options);
 
   var createOptions = {
       command: '/CMD_API_EMAIL_FORWARDERS',

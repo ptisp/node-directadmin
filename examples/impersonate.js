@@ -14,6 +14,26 @@ var daexample = new DIRECTADMIN(config);
 
 }); */
 
+/* deleteEmailForwarder(daexample, 'as24768.net', 'teste1@as24768.net', function (err, data) {
+  console.log(err);
+  console.log(data);
+}) */
+
+/* updateEmailForwarder(daexample, 'as24768.net', 'nuno_kisc@hotmail.com', 'teste1@as24768.net', function (err, data) {
+  console.log(err);
+  console.log(data);
+}) */
+
+listEmailForwarder(daexample, 'as24768.net', function (err, data) {
+    console.log(err);
+    console.log(data);
+})
+
+/* createEmailForwarder(daexample, 'as24768.net', 'nuno.cardoso@ptisp.pt', 'teste1@as24768.net', function (err, data) {
+  console.log(err);
+  console.log(data);
+}) */
+
 /* changePassword(daexample, 'restaurante-casadosleitoes.pt', 'asd123asd', function (err, data) {
   console.log(err);
   console.log(data);
@@ -57,6 +77,126 @@ var daexample = new DIRECTADMIN(config);
     console.log(err);
     console.log(data);
 }) */
+
+function deleteEmailForwarder(parkingserver, domainname, email ,callback) {
+  _getUserByDomain(parkingserver, domainname, function (err, user) {
+    if (err) {
+      callback(err.text);
+    }
+    else {
+      _loginWithUser(user, parkingserver, function (err, userConfig) {
+        if (err) {
+          callback(err.details);
+        }
+        else {
+          var newUserImpersonate = new DIRECTADMIN(userConfig);
+          var user = email.split('@')[0];
+          var opts = {
+            domain: domainname,
+            select0: user
+          }
+
+          newUserImpersonate.email.deleteEmailForwarder(opts, function (err, data) {
+            if (err) {
+              callback(err);
+            } else {
+              callback();
+            }
+          });
+        }
+      });
+    }
+  });
+};
+
+function updateEmailForwarder(parkingserver, domainname, destination, email ,callback) {
+  _getUserByDomain(parkingserver, domainname, function (err, user) {
+    if (err) {
+      callback(err.text);
+    }
+    else {
+      _loginWithUser(user, parkingserver, function (err, userConfig) {
+        if (err) {
+          callback(err.details);
+        }
+        else {
+          var newUserImpersonate = new DIRECTADMIN(userConfig);
+          var user = email.split('@')[0];
+          var opts = {
+            domain: domainname,
+            user: user,
+            email: destination
+          }
+
+          newUserImpersonate.email.updateEmailForwarder(opts, function (err, data) {
+            if (err) {
+              callback(err);
+            } else {
+              callback();
+            }
+          });
+        }
+      });
+    }
+  });
+};
+
+function listEmailForwarder(parkingserver, domainname, callback) {
+  _getUserByDomain(parkingserver, domainname, function (err, user) {
+    if (err) {
+      callback(err.text);
+    }
+    else {
+      _loginWithUser(user, parkingserver, function (err, userConfig) {
+        if (err) {
+          callback(err.details);
+        }
+        else {
+          var newUserImpersonate = new DIRECTADMIN(userConfig);
+          newUserImpersonate.email.listEmailForwarder(domainname, function (err, data) {
+            if (err) {
+              callback(err.details);
+            } else {
+              callback(undefined, data);
+            }
+          });
+        }
+      });
+    }
+  })
+}
+
+function createEmailForwarder(parkingserver, domainname, destination, email ,callback) {
+  _getUserByDomain(parkingserver, domainname, function (err, user) {
+    if (err) {
+      callback(err.text);
+    }
+    else {
+      _loginWithUser(user, parkingserver, function (err, userConfig) {
+        if (err) {
+          callback(err.details);
+        }
+        else {
+          var newUserImpersonate = new DIRECTADMIN(userConfig);
+          var user = email.split('@')[0];
+          var opts = {
+            domain: domainname,
+            user: user,
+            email: destination
+          }
+
+          newUserImpersonate.email.createEmailForwarder(opts, function (err, data) {
+            if (err) {
+              callback(err);
+            } else {
+              callback();
+            }
+          });
+        }
+      });
+    }
+  });
+};
 
 function accountSslInstall(parkingserver, domainname, callback) {
   _getUserByDomain(parkingserver, domainname, function (err, user) {
