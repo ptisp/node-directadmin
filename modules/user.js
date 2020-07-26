@@ -90,7 +90,7 @@ User.prototype.createUserDomain = function (domainInfo, callback) {
     options = extend(options, domainInfo);
 
     var createOptions = {
-        command: '/CMD_API_SHOW_DOMAINS',
+        command: '/CMD_API_DOMAIN',
         method: 'POST',
         client: this,
         body: options
