@@ -1,7 +1,7 @@
 {
   "name": "directadmin",
-  "version": "1.2.5",
-  "description": "DIRECTADMIN API client.",
+  "version": "1.2.6",
+  "description": "Node.js module for DirectAdmin panel",
   "main": "./directadmin",
   "scripts": {
     "test": "make test"
