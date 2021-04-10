@@ -21,10 +21,10 @@
   },
   "homepage": "https://github.com/ptisp/node-directadmin#readme",
   "dependencies": {
-    "request": "^2.88.0"
+    "axios": "^0.21.1"
   },
   "devDependencies": {
     "chai": "^4.2.0",
-    "mocha": "^8.0.1"
+    "mocha": "^8.3.2"
   }
 }
