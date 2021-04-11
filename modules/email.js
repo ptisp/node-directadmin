@@ -7,7 +7,7 @@ var Email = function (config) {
 
 /**
  * List Virtual POP Account: - https://www.directadmin.com/api.php
- * @param domain String 
+ * @param domain String
  * @param callback
  */
 Email.prototype.getListPopAccounts = function (domain, callback) {
@@ -19,7 +19,7 @@ Email.prototype.getListPopAccounts = function (domain, callback) {
 
     var createOptions = {
         command: '/CMD_API_POP',
-        method: 'POST',
+        method: 'GET',
         client: this,
         body: options
     };
@@ -29,7 +29,7 @@ Email.prototype.getListPopAccounts = function (domain, callback) {
 
 /**
  * Full List Virtual POP Account: - https://www.directadmin.com/api.php
- * @param domain String 
+ * @param domain String
  * @param callback
  */
 Email.prototype.getFullListPopAccounts = function (domain, callback) {
@@ -51,7 +51,7 @@ Email.prototype.getFullListPopAccounts = function (domain, callback) {
 
 /**
  * Create a Virtual POP Account: - https://www.directadmin.com/api.php
- * @param domain String 
+ * @param domain String
  * @param emailSettings Object
  * @param emailSettings.user String
  * @param emailSettings.passwd String
@@ -79,7 +79,7 @@ Email.prototype.createPopAccounts = function (domain, emailSettings, callback) {
 
 
 /**
- * Set Virtual Email Password: - https://www.directadmin.com/api.php 
+ * Set Virtual Email Password: - https://www.directadmin.com/api.php
  * @param emailSettings Object
  * @param emailSettings.user String
  * @param emailSettings.passwd String
@@ -105,7 +105,7 @@ Email.prototype.updatePopAccountsPassword = function (domain, emailSettings, cal
 };
 
 /**
- * Set Virtual Email Password: - https://www.directadmin.com/api.php 
+ * Set Virtual Email Password: - https://www.directadmin.com/api.php
  * @param emailSettings Object
  * @param emailSettings.user String
  * @param emailSettings.oldpassword String
@@ -132,7 +132,7 @@ Email.prototype.updatePasswordPopAccounts = function (domain, emailSettings, cal
 
 /**
  * Delete a Virtual POP Account: - https://www.directadmin.com/api.php
- * @param domain String 
+ * @param domain String
  * @param user String
  * @param callback
  */
@@ -156,7 +156,7 @@ Email.prototype.deletePopAccounts = function (domain, user, callback) {
 
 /**
  * Create email forwarder: - https://www.directadmin.com/api.php
- * @param forwarderData Object 
+ * @param forwarderData Object
  * @param forwarderData.domain String
  * @param forwarderData.user String
  * @param forwarderData.email String
@@ -201,7 +201,7 @@ Email.prototype.listEmailForwarder = function (domain, callback) {
 
 /**
  * Update email forwarder: - https://www.directadmin.com/api.php
- * @param forwarderData Object 
+ * @param forwarderData Object
  * @param forwarderData.domain String
  * @param forwarderData.user String
  * @param forwarderData.email String
