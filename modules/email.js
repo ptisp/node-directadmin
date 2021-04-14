@@ -69,7 +69,7 @@ Email.prototype.createPopAccounts = function (domain, emailSettings, callback) {
 
     var createOptions = {
         command: '/CMD_API_POP',
-        method: 'POST',
+        method: 'GET',
         client: this,
         body: options
     };
@@ -96,7 +96,7 @@ Email.prototype.updatePopAccountsPassword = function (domain, emailSettings, cal
 
     var createOptions = {
         command: '/CMD_API_POP',
-        method: 'POST',
+        method: 'GET',
         client: this,
         body: options
     };
@@ -146,7 +146,7 @@ Email.prototype.deletePopAccounts = function (domain, user, callback) {
 
     var createOptions = {
         command: '/CMD_API_POP',
-        method: 'POST',
+        method: 'GET',
         client: this,
         body: options
     };
@@ -170,7 +170,7 @@ Email.prototype.createEmailForwarder = function (forwarderData, callback) {
 
   var createOptions = {
       command: '/CMD_API_EMAIL_FORWARDERS',
-      method: 'POST',
+      method: 'GET',
       client: this,
       body: options
   };
@@ -191,7 +191,7 @@ Email.prototype.listEmailForwarder = function (domain, callback) {
 
   var createOptions = {
       command: '/CMD_API_EMAIL_FORWARDERS',
-      method: 'POST',
+      method: 'GET',
       client: this,
       body: options
   };
@@ -215,7 +215,7 @@ Email.prototype.updateEmailForwarder = function (forwarderData, callback) {
 
   var createOptions = {
       command: '/CMD_API_EMAIL_FORWARDERS',
-      method: 'POST',
+      method: 'GET',
       client: this,
       body: options
   };
@@ -240,7 +240,7 @@ Email.prototype.deleteEmailForwarder = function (forwarderData, callback) {
 
   var createOptions = {
     command: '/CMD_API_EMAIL_FORWARDERS',
-    method: 'POST',
+    method: 'GET',
     client: this,
     body: options
   };
