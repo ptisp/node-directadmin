@@ -145,7 +145,7 @@ Account.prototype.createUserAccount = function (userSettings, callback) {
 
   var createOptions = {
     command: '/CMD_API_ACCOUNT_USER',
-    method: 'POST',
+    method: 'GET',
     client: this,
     body: options
   };
@@ -291,7 +291,7 @@ Account.prototype.unsuspendAccounts = function (users, callback) {
 };
 
 /**
- * 
+ *
  * Get List of Users owned by Reseller: - https://www.directadmin.com/api.php
  * @param reseller String
  * @param callback
@@ -317,7 +317,7 @@ Account.prototype.getListUserAccounts = function (reseller, callback) {
 };
 
 /**
- * 
+ *
  * Get List of Resellers on server: - https://www.directadmin.com/api.php
  * @param callback
  */
@@ -337,7 +337,7 @@ Account.prototype.getListResellerAccounts = function (callback) {
 };
 
 /**
- * 
+ *
  * Get List of Admins on server: - https://www.directadmin.com/api.php
  * @param callback
  */
@@ -357,7 +357,7 @@ Account.prototype.getListAdminAccounts = function (callback) {
 };
 
 /**
- * 
+ *
  * Get List of all Users on server - https://www.directadmin.com/api.php
  * @param callback
  */
@@ -433,7 +433,7 @@ Account.prototype.updateUserAccount = function (userSettings, callback) {
 };
 
 /**
- * 
+ *
  * Change User Password - https://www.directadmin.com/api.php
  * @param userInfo Object
  * @param userInfo.username String
