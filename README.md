@@ -20,8 +20,20 @@ _Self explanatory_
 - `port`
 
 ## Examples
+```js
+let DirectAdmin = require('directadmin');
+let da = new DirectAdmin({
+    username: 'admin',
+    password: 'password',
+    serverUrl: 'https://example.com',
+    port: '2222',
+    forceJsonRequests: true
+})
+```
 
 Check the examples folder for more specific use cases examples.
+
+See the [DirectAdmin documentation](https://www.directadmin.com/api.html) more info. Keep in mind that lots of functionality is not documented by DirectAdmin. Chrome dev tools are a good way to find undocumented API calls.
 
 ## License
 
