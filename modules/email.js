@@ -10,7 +10,7 @@ var Email = function (config) {
  * @param domain String
  * @param callback
  */
-Email.prototype.getListPopAccounts = function (domain, callback) {
+Email.prototype.getListPopAccounts = async function (domain, callback) {
     var options = {
         action: 'list',
         domain: domain
@@ -24,7 +24,7 @@ Email.prototype.getListPopAccounts = function (domain, callback) {
         body: options
     };
 
-    utils.modem(createOptions, callback);
+    return utils.modem(createOptions, callback);
 };
 
 /**
@@ -32,7 +32,7 @@ Email.prototype.getListPopAccounts = function (domain, callback) {
  * @param domain String
  * @param callback
  */
-Email.prototype.getFullListPopAccounts = function (domain, callback) {
+Email.prototype.getFullListPopAccounts = async function (domain, callback) {
     var options = {
         action: 'full_list',
         domain: domain
@@ -46,7 +46,7 @@ Email.prototype.getFullListPopAccounts = function (domain, callback) {
         body: options
     };
 
-    utils.modem(createOptions, callback);
+    return utils.modem(createOptions, callback);
 };
 
 /**
@@ -60,7 +60,7 @@ Email.prototype.getFullListPopAccounts = function (domain, callback) {
  * @param emailSettings.limit Number
  * @param callback
  */
-Email.prototype.createPopAccounts = function (domain, emailSettings, callback) {
+Email.prototype.createPopAccounts = async function (domain, emailSettings, callback) {
     var options = {
         action: 'create',
         domain: domain,
@@ -74,7 +74,7 @@ Email.prototype.createPopAccounts = function (domain, emailSettings, callback) {
         body: options
     };
 
-    utils.modem(createOptions, callback);
+    return utils.modem(createOptions, callback);
 };
 
 
@@ -87,7 +87,7 @@ Email.prototype.createPopAccounts = function (domain, emailSettings, callback) {
  * @param emailSettings.quota Int
  * @param callback
  */
-Email.prototype.updatePopAccountsPassword = function (domain, emailSettings, callback) {
+Email.prototype.updatePopAccountsPassword = async function (domain, emailSettings, callback) {
     var options = {
         action: 'modify',
         domain: domain
@@ -101,7 +101,7 @@ Email.prototype.updatePopAccountsPassword = function (domain, emailSettings, cal
         body: options
     };
 
-    utils.modem(createOptions, callback);
+    return utils.modem(createOptions, callback);
 };
 
 /**
@@ -113,7 +113,7 @@ Email.prototype.updatePopAccountsPassword = function (domain, emailSettings, cal
  * @param emailSettings.password2 String
  * @param callback
  */
-Email.prototype.updatePasswordPopAccounts = function (domain, emailSettings, callback) {
+Email.prototype.updatePasswordPopAccounts = async function (domain, emailSettings, callback) {
     var options = {
         api: 'yes',
         email: emailSettings.user + '@' + domain
@@ -127,7 +127,7 @@ Email.prototype.updatePasswordPopAccounts = function (domain, emailSettings, cal
         body: options
     };
 
-    utils.modem(createOptions, callback);
+    return utils.modem(createOptions, callback);
 };
 
 /**
@@ -136,7 +136,7 @@ Email.prototype.updatePasswordPopAccounts = function (domain, emailSettings, cal
  * @param user String
  * @param callback
  */
-Email.prototype.deletePopAccounts = function (domain, user, callback) {
+Email.prototype.deletePopAccounts = async function (domain, user, callback) {
     var options = {
         action: 'delete',
         domain: domain,
@@ -151,7 +151,7 @@ Email.prototype.deletePopAccounts = function (domain, user, callback) {
         body: options
     };
 
-    utils.modem(createOptions, callback);
+    return utils.modem(createOptions, callback);
 };
 
 /**
@@ -162,7 +162,7 @@ Email.prototype.deletePopAccounts = function (domain, user, callback) {
  * @param forwarderData.email String
  * @param callback
  */
-Email.prototype.createEmailForwarder = function (forwarderData, callback) {
+Email.prototype.createEmailForwarder = async function (forwarderData, callback) {
   var options = {
       action: 'create'
   };
@@ -175,7 +175,7 @@ Email.prototype.createEmailForwarder = function (forwarderData, callback) {
       body: options
   };
 
-  utils.modem(createOptions, callback);
+  return utils.modem(createOptions, callback);
 };
 
 /**
@@ -183,7 +183,7 @@ Email.prototype.createEmailForwarder = function (forwarderData, callback) {
  * @param domain String
  * @param callback
  */
-Email.prototype.listEmailForwarder = function (domain, callback) {
+Email.prototype.listEmailForwarder = async function (domain, callback) {
   var options = {
       domain: domain
   };
@@ -196,7 +196,7 @@ Email.prototype.listEmailForwarder = function (domain, callback) {
       body: options
   };
 
-  utils.modem(createOptions, callback);
+  return utils.modem(createOptions, callback);
 };
 
 /**
@@ -207,7 +207,7 @@ Email.prototype.listEmailForwarder = function (domain, callback) {
  * @param forwarderData.email String
  * @param callback
  */
-Email.prototype.updateEmailForwarder = function (forwarderData, callback) {
+Email.prototype.updateEmailForwarder = async function (forwarderData, callback) {
   var options = {
       action: 'modify'
   };
@@ -220,7 +220,7 @@ Email.prototype.updateEmailForwarder = function (forwarderData, callback) {
       body: options
   };
 
-  utils.modem(createOptions, callback);
+  return utils.modem(createOptions, callback);
 };
 
 /**
@@ -232,7 +232,7 @@ Email.prototype.updateEmailForwarder = function (forwarderData, callback) {
  * @param forwarderData.selectX String
  * @param callback
  */
-Email.prototype.deleteEmailForwarder = function (forwarderData, callback) {
+Email.prototype.deleteEmailForwarder = async function (forwarderData, callback) {
   var options = {
     action: 'delete'
   };
@@ -245,7 +245,7 @@ Email.prototype.deleteEmailForwarder = function (forwarderData, callback) {
     body: options
   };
 
-  utils.modem(createOptions, callback);
+  return utils.modem(createOptions, callback);
 };
 
 module.exports = Email;

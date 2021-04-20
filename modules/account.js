@@ -15,7 +15,7 @@ var Account = function (config) {
  * @param userSettings.notify String
  * @param callback
  */
-Account.prototype.createAdminAccount = function (userSettings, callback) {
+Account.prototype.createAdminAccount = async function (userSettings, callback) {
   var options = {
     action: 'create'
   };
@@ -28,7 +28,7 @@ Account.prototype.createAdminAccount = function (userSettings, callback) {
     body: options
   };
 
-  utils.modem(createOptions, callback);
+  return utils.modem(createOptions, callback);
 };
 
 /**
@@ -44,7 +44,7 @@ Account.prototype.createAdminAccount = function (userSettings, callback) {
  * @param userSettings.ip Ip
  * @param callback
  */
-Account.prototype.createResellerAccount = function (userSettings, callback) {
+Account.prototype.createResellerAccount = async function (userSettings, callback) {
   var options = {
     action: 'create',
     add: 'Submit'
@@ -58,7 +58,7 @@ Account.prototype.createResellerAccount = function (userSettings, callback) {
     body: options
   };
 
-  utils.modem(createOptions, callback);
+  return utils.modem(createOptions, callback);
 };
 
 /**
@@ -106,7 +106,7 @@ Account.prototype.createResellerAccount = function (userSettings, callback) {
  * @param userSettings.notify String
  * @param callback
  */
-Account.prototype.createCustomResellerAccount = function (userSettings, callback) {
+Account.prototype.createCustomResellerAccount = async function (userSettings, callback) {
   var options = {
     action: 'create',
     add: 'Submit'
@@ -120,7 +120,7 @@ Account.prototype.createCustomResellerAccount = function (userSettings, callback
     body: options
   };
 
-  utils.modem(createOptions, callback);
+  return utils.modem(createOptions, callback);
 };
 
 /**
@@ -136,7 +136,7 @@ Account.prototype.createCustomResellerAccount = function (userSettings, callback
  * @param userSettings.ip Ip
  * @param callback
  */
-Account.prototype.createUserAccount = function (userSettings, callback) {
+Account.prototype.createUserAccount = async function (userSettings, callback) {
   var options = {
     action: 'create',
     add: 'Submit'
@@ -150,7 +150,7 @@ Account.prototype.createUserAccount = function (userSettings, callback) {
     body: options
   };
 
-  utils.modem(createOptions, callback);
+  return utils.modem(createOptions, callback);
 };
 
 /**
@@ -198,7 +198,7 @@ Account.prototype.createUserAccount = function (userSettings, callback) {
  * @param userSettings.notify String
  * @param callback
  */
-Account.prototype.createCustomUserAccount = function (userSettings, callback) {
+Account.prototype.createCustomUserAccount = async function (userSettings, callback) {
   var options = {
     action: 'create',
     add: 'Submit'
@@ -212,7 +212,7 @@ Account.prototype.createCustomUserAccount = function (userSettings, callback) {
     body: options
   };
 
-  utils.modem(createOptions, callback);
+  return utils.modem(createOptions, callback);
 };
 
 /**
@@ -223,7 +223,7 @@ Account.prototype.createCustomUserAccount = function (userSettings, callback) {
  * @param users.selectX String
  * @param callback
  */
-Account.prototype.deleteAccounts = function (users, callback) {
+Account.prototype.deleteAccounts = async function (users, callback) {
   var options = {
     confirmed: 'Confirm',
     delete: 'yes'
@@ -237,7 +237,7 @@ Account.prototype.deleteAccounts = function (users, callback) {
     body: options
   };
 
-  utils.modem(createOptions, callback);
+  return utils.modem(createOptions, callback);
 };
 
 /**
@@ -248,7 +248,7 @@ Account.prototype.deleteAccounts = function (users, callback) {
  * @param users.selectX String
  * @param callback
  */
-Account.prototype.suspendAccounts = function (users, callback) {
+Account.prototype.suspendAccounts = async function (users, callback) {
   var options = {
     location: 'CMD_SELECT_USERS',
     suspend: 'Suspend'
@@ -262,7 +262,7 @@ Account.prototype.suspendAccounts = function (users, callback) {
     body: options
   };
 
-  utils.modem(createOptions, callback);
+  return utils.modem(createOptions, callback);
 };
 
 /**
@@ -273,7 +273,7 @@ Account.prototype.suspendAccounts = function (users, callback) {
  * @param users.selectX String
  * @param callback
  */
-Account.prototype.unsuspendAccounts = function (users, callback) {
+Account.prototype.unsuspendAccounts = async function (users, callback) {
   var options = {
     location: 'CMD_SELECT_USERS',
     suspend: 'Unsuspend'
@@ -287,7 +287,7 @@ Account.prototype.unsuspendAccounts = function (users, callback) {
     body: options
   };
 
-  utils.modem(createOptions, callback);
+  return utils.modem(createOptions, callback);
 };
 
 /**
@@ -296,7 +296,7 @@ Account.prototype.unsuspendAccounts = function (users, callback) {
  * @param reseller String
  * @param callback
  */
-Account.prototype.getListUserAccounts = function (reseller, callback) {
+Account.prototype.getListUserAccounts = async function (reseller, callback) {
   var options = {};
   if (reseller != '') {
     options = {
@@ -313,7 +313,7 @@ Account.prototype.getListUserAccounts = function (reseller, callback) {
     body: options
   };
 
-  utils.modem(createOptions, callback);
+  return utils.modem(createOptions, callback);
 };
 
 /**
@@ -321,7 +321,7 @@ Account.prototype.getListUserAccounts = function (reseller, callback) {
  * Get List of Resellers on server: - https://www.directadmin.com/api.php
  * @param callback
  */
-Account.prototype.getListResellerAccounts = function (callback) {
+Account.prototype.getListResellerAccounts = async function (callback) {
   var options = {};
 
   options = extend(options);
@@ -333,7 +333,7 @@ Account.prototype.getListResellerAccounts = function (callback) {
     body: options
   };
 
-  utils.modem(createOptions, callback);
+  return utils.modem(createOptions, callback);
 };
 
 /**
@@ -341,7 +341,7 @@ Account.prototype.getListResellerAccounts = function (callback) {
  * Get List of Admins on server: - https://www.directadmin.com/api.php
  * @param callback
  */
-Account.prototype.getListAdminAccounts = function (callback) {
+Account.prototype.getListAdminAccounts = async function (callback) {
   var options = {};
 
   options = extend(options);
@@ -353,7 +353,7 @@ Account.prototype.getListAdminAccounts = function (callback) {
     body: options
   };
 
-  utils.modem(createOptions, callback);
+  return utils.modem(createOptions, callback);
 };
 
 /**
@@ -361,7 +361,7 @@ Account.prototype.getListAdminAccounts = function (callback) {
  * Get List of all Users on server - https://www.directadmin.com/api.php
  * @param callback
  */
-Account.prototype.getListAllUserAccounts = function (callback) {
+Account.prototype.getListAllUserAccounts = async function (callback) {
   var options = {};
 
   options = extend(options);
@@ -373,7 +373,7 @@ Account.prototype.getListAllUserAccounts = function (callback) {
     body: options
   };
 
-  utils.modem(createOptions, callback);
+  return utils.modem(createOptions, callback);
 };
 
 /**
@@ -416,7 +416,7 @@ Account.prototype.getListAllUserAccounts = function (callback) {
  * @param userSettings.ns2 String
  * @param callback
  */
-Account.prototype.updateUserAccount = function (userSettings, callback) {
+Account.prototype.updateUserAccount = async function (userSettings, callback) {
   var options = {
     action: 'customize'
   };
@@ -429,7 +429,7 @@ Account.prototype.updateUserAccount = function (userSettings, callback) {
     body: options
   };
 
-  utils.modem(createOptions, callback);
+  return utils.modem(createOptions, callback);
 };
 
 /**
@@ -441,7 +441,7 @@ Account.prototype.updateUserAccount = function (userSettings, callback) {
  * @param userInfo.passwd2 String
  * @param callback
  */
-Account.prototype.updateUserPassword = function (userInfo, callback) {
+Account.prototype.updateUserPassword = async function (userInfo, callback) {
   var options = {};
 
   options = extend(options, userInfo);
@@ -453,7 +453,7 @@ Account.prototype.updateUserPassword = function (userInfo, callback) {
     body: options
   };
 
-  utils.modem(createOptions, callback);
+  return utils.modem(createOptions, callback);
 };
 
 /**
@@ -466,7 +466,7 @@ Account.prototype.updateUserPassword = function (userInfo, callback) {
  * @param ftpSettings.passwd2 String
  * @param callback
  */
-Account.prototype.createFtpccount = function (ftpSettings, callback) {
+Account.prototype.createFtpccount = async function (ftpSettings, callback) {
   var options = {
     action: 'create'
   };
@@ -479,7 +479,7 @@ Account.prototype.createFtpccount = function (ftpSettings, callback) {
     body: options
   };
 
-  utils.modem(createOptions, callback);
+  return utils.modem(createOptions, callback);
 };
 
 /**
@@ -492,7 +492,7 @@ Account.prototype.createFtpccount = function (ftpSettings, callback) {
  * @param ftpSettings.passwd2 String
  * @param callback
  */
-Account.prototype.updateFtpccount = function (ftpSettings, callback) {
+Account.prototype.updateFtpccount = async function (ftpSettings, callback) {
   var options = {
     action: 'modify'
   };
@@ -505,7 +505,7 @@ Account.prototype.updateFtpccount = function (ftpSettings, callback) {
     body: options
   };
 
-  utils.modem(createOptions, callback);
+  return utils.modem(createOptions, callback);
 };
 
 /**
@@ -517,7 +517,7 @@ Account.prototype.updateFtpccount = function (ftpSettings, callback) {
  * @param ftpSettings.selectX String
  * @param callback
  */
-Account.prototype.deleteFtpAccounts = function (ftpSettings, callback) {
+Account.prototype.deleteFtpAccounts = async function (ftpSettings, callback) {
   var options = {
     action: 'delete'
   };
@@ -530,7 +530,7 @@ Account.prototype.deleteFtpAccounts = function (ftpSettings, callback) {
     body: options
   };
 
-  utils.modem(createOptions, callback);
+  return utils.modem(createOptions, callback);
 };
 
 /**
@@ -544,7 +544,7 @@ Account.prototype.deleteFtpAccounts = function (ftpSettings, callback) {
  * @param accountDetails.le_select1 String
  * @param callback
  */
-Account.prototype.accountSslInstall = function (accountDetails, callback) {
+Account.prototype.accountSslInstall = async function (accountDetails, callback) {
   var options = {
     action: 'save',
     type: 'create',
@@ -561,7 +561,7 @@ Account.prototype.accountSslInstall = function (accountDetails, callback) {
     body: options
   };
 
-  utils.modem(createOptions, callback);
+  return utils.modem(createOptions, callback);
 };
 
 module.exports = Account;

@@ -6,13 +6,13 @@ var Server = function (config) {
 };
 
 /**
- * 
+ *
  * Get Server Statistics: - https://www.directadmin.com/api.php
  * @param callback
  */
-Server.prototype.getServerStatistics = function (callback) {
+Server.prototype.getServerStatistics = async function (callback) {
     var options = {};
-    
+
     options = extend(options);
 
     var createOptions = {
@@ -22,17 +22,17 @@ Server.prototype.getServerStatistics = function (callback) {
         body: options
     };
 
-    utils.modem(createOptions, callback);
+    return utils.modem(createOptions, callback);
 };
 
 /**
- * 
+ *
  * List Databases: - https://www.directadmin.com/api.php
  * @param callback
  */
-Server.prototype.getListDatabases = function (callback) {
+Server.prototype.getListDatabases = async function (callback) {
     var options = {};
-    
+
     options = extend(options);
 
     var createOptions = {
@@ -42,11 +42,11 @@ Server.prototype.getListDatabases = function (callback) {
         body: options
     };
 
-    utils.modem(createOptions, callback);
+    return utils.modem(createOptions, callback);
 };
 
 /**
- * 
+ *
  * Create Database: - https://www.directadmin.com/api.php
  * @param databaseInfo Object
  * @param databaseInfo.name String
@@ -55,11 +55,11 @@ Server.prototype.getListDatabases = function (callback) {
  * @param databaseInfo.passwd2 String
  * @param callback
  */
-Server.prototype.createDatabase = function (databaseInfo, callback) {
+Server.prototype.createDatabase = async function (databaseInfo, callback) {
     var options = {
         action: 'create'
     };
-    
+
     options = extend(options, databaseInfo);
 
     var createOptions = {
@@ -69,11 +69,11 @@ Server.prototype.createDatabase = function (databaseInfo, callback) {
         body: options
     };
 
-    utils.modem(createOptions, callback);
+    return utils.modem(createOptions, callback);
 };
 
 /**
- * 
+ *
  * Delete Database: - https://www.directadmin.com/api.php
  * @param databaseInfo Object
  * @param databaseInfo.select0 String
@@ -81,11 +81,11 @@ Server.prototype.createDatabase = function (databaseInfo, callback) {
  * @param databaseInfo.selectX String
  * @param callback
  */
-Server.prototype.deleteDatabase = function (databaseInfo, callback) {
+Server.prototype.deleteDatabase = async function (databaseInfo, callback) {
     var options = {
         action: 'delete'
     };
-    
+
     options = extend(options, databaseInfo);
 
     var createOptions = {
@@ -95,7 +95,7 @@ Server.prototype.deleteDatabase = function (databaseInfo, callback) {
         body: options
     };
 
-    utils.modem(createOptions, callback);
+    return utils.modem(createOptions, callback);
 };
 
 module.exports = Server;

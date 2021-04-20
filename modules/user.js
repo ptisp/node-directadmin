@@ -6,11 +6,11 @@ var User = function (config) {
 };
 
 /**
- * 
+ *
  * Show User Packages: - https://www.directadmin.com/api.php
  * @param callback
  */
-User.prototype.getAllUserPackages = function (callback) {
+User.prototype.getAllUserPackages = async function (callback) {
     var options = {};
 
     options = extend(options);
@@ -22,16 +22,16 @@ User.prototype.getAllUserPackages = function (callback) {
         body: options
     };
 
-    utils.modem(createOptions, callback);
+    return utils.modem(createOptions, callback);
 };
 
 /**
- * 
+ *
  * Show Reseller Packages: - https://www.directadmin.com/api.php
  * @param package Ip
  * @param callback
  */
-User.prototype.getResellerPackage = function (user, callback) {
+User.prototype.getResellerPackage = async function (user, callback) {
     var options = {
         user: user
     };
@@ -45,15 +45,15 @@ User.prototype.getResellerPackage = function (user, callback) {
         body: options
     };
 
-    utils.modem(createOptions, callback);
+    return utils.modem(createOptions, callback);
 };
 
 /**
- * 
+ *
  * Show User List Domains: - https://www.directadmin.com/api.php
  * @param callback
  */
-User.prototype.getUserListDomains = function (callback) {
+User.prototype.getUserListDomains = async function (callback) {
     var options = {};
 
     options = extend(options);
@@ -65,11 +65,11 @@ User.prototype.getUserListDomains = function (callback) {
         body: options
     };
 
-    utils.modem(createOptions, callback);
+    return utils.modem(createOptions, callback);
 };
 
 /**
- * 
+ *
  * User Create Domain: - https://www.directadmin.com/api.php
  * @param domainInfo Object
  * @param domainInfo.domain String
@@ -82,7 +82,7 @@ User.prototype.getUserListDomains = function (callback) {
  * @param domainInfo.php String
  * @param callback
  */
-User.prototype.createUserDomain = function (domainInfo, callback) {
+User.prototype.createUserDomain = async function (domainInfo, callback) {
     var options = {
         action: 'create'
     };
@@ -96,16 +96,16 @@ User.prototype.createUserDomain = function (domainInfo, callback) {
         body: options
     };
 
-    utils.modem(createOptions, callback);
+    return utils.modem(createOptions, callback);
 };
 
 /**
- * 
+ *
  * Show User List Subdomains: - https://www.directadmin.com/api.php
  * @param domain String
  * @param callback
  */
-User.prototype.getUserListSubDomains = function (domain,callback) {
+User.prototype.getUserListSubDomains = async function (domain,callback) {
     var options = {
         domain: domain
     };
@@ -119,18 +119,18 @@ User.prototype.getUserListSubDomains = function (domain,callback) {
         body: options
     };
 
-    utils.modem(createOptions, callback);
+    return utils.modem(createOptions, callback);
 };
 
 /**
- * 
+ *
  * User Create SubDomain: - https://www.directadmin.com/api.php
  * @param domainsInfo Object
  * @param domainsInfo.domain String
  * @param domainsInfo.subdomain String
  * @param callback
  */
-User.prototype.createUserSubDomain = function (domainsInfo, callback) {
+User.prototype.createUserSubDomain = async function (domainsInfo, callback) {
     var options = {
         action: 'create'
     };
@@ -144,11 +144,11 @@ User.prototype.createUserSubDomain = function (domainsInfo, callback) {
         body: options
     };
 
-    utils.modem(createOptions, callback);
+    return utils.modem(createOptions, callback);
 };
 
 /**
- * 
+ *
  * User Delete SubDomain: - https://www.directadmin.com/api.php
  * @param domainsInfo Object
  * @param domainsInfo.domain String
@@ -158,7 +158,7 @@ User.prototype.createUserSubDomain = function (domainsInfo, callback) {
  * @param domainsInfo.selectX String
  * @param callback
  */
-User.prototype.deleteUserSubDomain = function (domainsInfo, callback) {
+User.prototype.deleteUserSubDomain = async function (domainsInfo, callback) {
     var options = {
         action: 'delete'
     };
@@ -172,16 +172,16 @@ User.prototype.deleteUserSubDomain = function (domainsInfo, callback) {
         body: options
     };
 
-    utils.modem(createOptions, callback);
+    return utils.modem(createOptions, callback);
 };
 
 /**
- * 
+ *
  * Get User Usage: - https://www.directadmin.com/api.php
- * @param user String 
+ * @param user String
  * @param callback
  */
-User.prototype.getUserUsage = function (user, callback) {
+User.prototype.getUserUsage = async function (user, callback) {
     var options = {};
 
     if(user != '')
@@ -200,16 +200,16 @@ User.prototype.getUserUsage = function (user, callback) {
         body: options
     };
 
-    utils.modem(createOptions, callback);
+    return utils.modem(createOptions, callback);
 };
 
 /**
- * 
+ *
  * Get User Limits and Configurations: - https://www.directadmin.com/api.php
- * @param user String 
+ * @param user String
  * @param callback
  */
-User.prototype.getUserLimits = function (user, callback) {
+User.prototype.getUserLimits = async function (user, callback) {
     var options = {};
 
     if(user != '')
@@ -228,16 +228,16 @@ User.prototype.getUserLimits = function (user, callback) {
         body: options
     };
 
-    utils.modem(createOptions, callback);
+    return utils.modem(createOptions, callback);
 };
 
 /**
- * 
+ *
  * Get User Domains: - https://www.directadmin.com/api.php
- * @param user String 
+ * @param user String
  * @param callback
  */
-User.prototype.getUserDomains = function (user, callback) {
+User.prototype.getUserDomains = async function (user, callback) {
     var options = {};
 
     if(user != '')
@@ -256,19 +256,19 @@ User.prototype.getUserDomains = function (user, callback) {
         body: options
     };
 
-    utils.modem(createOptions, callback);
+    return utils.modem(createOptions, callback);
 };
 
 /**
- * 
+ *
  * Add Domain Redirect: - https://www.directadmin.com/api.php
- * @param settings String 
+ * @param settings String
  * @param settings.domain String
  * @param settings.from String
  * @param settings.to String
  * @param callback
  */
-User.prototype.addDomainRedirect = function (settings, callback) {
+User.prototype.addDomainRedirect = async function (settings, callback) {
     var options = {
         action: 'add'
     };
@@ -282,16 +282,16 @@ User.prototype.addDomainRedirect = function (settings, callback) {
         body: options
     };
 
-    utils.modem(createOptions, callback);
+    return utils.modem(createOptions, callback);
 };
 
 /**
- * 
+ *
  * Get Domain Redirect: - https://www.directadmin.com/api.php
- * @param domain String 
+ * @param domain String
  * @param callback
  */
-User.prototype.getDomainRedirect = function (domain, callback) {
+User.prototype.getDomainRedirect = async function (domain, callback) {
     var options = {};
 
     if(domain != '')
@@ -310,11 +310,11 @@ User.prototype.getDomainRedirect = function (domain, callback) {
         body: options
     };
 
-    utils.modem(createOptions, callback);
+    return utils.modem(createOptions, callback);
 };
 
 /**
- * 
+ *
  * Delete Domain Redirect: - https://www.directadmin.com/api.php
  * @param settings Object
  * @param settings.domain String
@@ -323,7 +323,7 @@ User.prototype.getDomainRedirect = function (domain, callback) {
  * @param settings.selectX String
  * @param callback
  */
-User.prototype.deleteDomainRedirect = function (settings, callback) {
+User.prototype.deleteDomainRedirect = async function (settings, callback) {
     var options = {
         action: 'delete'
     };
@@ -337,16 +337,16 @@ User.prototype.deleteDomainRedirect = function (settings, callback) {
         body: options
     };
 
-    utils.modem(createOptions, callback);
+    return utils.modem(createOptions, callback);
 };
 
 /**
- * 
+ *
  * Delete Domain Redirect: - https://www.directadmin.com/api.php
  * @param domain String
  * @param callback
  */
-User.prototype.getUserByDomain = function (domain, callback) {
+User.prototype.getUserByDomain = async function (domain, callback) {
     var options = {
         domain: domain
     };
@@ -360,7 +360,7 @@ User.prototype.getUserByDomain = function (domain, callback) {
         body: options
     };
 
-    utils.modem(createOptions, callback);
+    return utils.modem(createOptions, callback);
 };
 
 

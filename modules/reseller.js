@@ -6,12 +6,12 @@ var Reseller = function (config) {
 };
 
 /**
- * 
+ *
  * Get List of IPs and get IP info: - https://www.directadmin.com/api.php
  * @param ip Ip
  * @param callback
  */
-Reseller.prototype.getResellerIps = function (ip, callback) {
+Reseller.prototype.getResellerIps = async function (ip, callback) {
     var options = {};
     if(ip != '')
     {
@@ -29,15 +29,15 @@ Reseller.prototype.getResellerIps = function (ip, callback) {
         body: options
     };
 
-    utils.modem(createOptions, callback);
+    return utils.modem(createOptions, callback);
 };
 
 /**
- * 
+ *
  * Show Reseller Packages: - https://www.directadmin.com/api.php
  * @param callback
  */
-Reseller.prototype.getAllResellerPackages = function (callback) {
+Reseller.prototype.getAllResellerPackages = async function (callback) {
     var options = {};
 
     var createOptions = {
@@ -47,22 +47,22 @@ Reseller.prototype.getAllResellerPackages = function (callback) {
         body: options
     };
 
-    utils.modem(createOptions, callback);
+    return utils.modem(createOptions, callback);
 };
 
 /**
- * 
+ *
  * Show Reseller Packages: - https://www.directadmin.com/api.php
  * @param package String
  * @param callback
  */
-Reseller.prototype.getResellerPackage = function (package, callback) {
+Reseller.prototype.getResellerPackage = async function (package, callback) {
     var options = {
         package: package
     };
 
     options = extend(options);
-    
+
     var createOptions = {
         command: '/CMD_API_PACKAGES_RESELLER',
         method: 'GET',
@@ -70,7 +70,7 @@ Reseller.prototype.getResellerPackage = function (package, callback) {
         body: options
     };
 
-    utils.modem(createOptions, callback);
+    return utils.modem(createOptions, callback);
 };
 
 module.exports = Reseller;
