@@ -91,7 +91,7 @@ User.prototype.createUserDomain = async function (domainInfo, callback) {
 
     var createOptions = {
         command: '/CMD_API_DOMAIN',
-        method: 'POST',
+        method: 'GET',
         client: this,
         body: options
     };
