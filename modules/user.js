@@ -370,7 +370,8 @@ User.prototype.getUserByDomain = async function (domain, callback) {
  * @param settings.keyName Object
  * @param settings.key String
  * @param settings.neverExpires Boolean
- * @param settings.expiryTimestamp Number
+ * @param settings.expiryTimestamp Number (Use expiry for one_time_url as this will option will not work)
+ * @param settings.expiry String (expiry=1d; Valid time units are: s,m,h,d,M,y and ARE case sensitive. This is only for type=one_time_url)
  * @param settings.maxUses Number
  * @param settings.clearKey Boolean
  * @param settings.allowHtml Boolean
@@ -386,6 +387,7 @@ User.prototype.createLoginKey = async function (settings, callback) {
       key2: settings.key2,
       never_expires: settings.neverExpires ? 'yes':'no',
       expiry_timestamp: settings.expiryTimestamp,
+      expiry: settings.expiry,
       max_uses: settings.maxUses,
       clear_key: settings.clearKey ? 'yes':'no',
       allow_html: settings.allowHtml ? 'yes':'no',
@@ -396,7 +398,7 @@ User.prototype.createLoginKey = async function (settings, callback) {
 
     // Add optional properties for permissions
     for(let prop in settings)
-      if(props.startsWith('select'))
+      if(prop.startsWith('select'))
         options[prop] = settings[prop];
 
     // Remove unused options
