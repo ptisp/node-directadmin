@@ -363,6 +363,59 @@ User.prototype.getUserByDomain = async function (domain, callback) {
     return utils.modem(createOptions, callback);
 };
 
+/**
+ *
+ * Create login key: - https://www.directadmin.com/features.php?id=1298
+ * @param settings Object
+ * @param settings.keyName Object
+ * @param settings.key String
+ * @param settings.neverExpires Boolean
+ * @param settings.expiryTimestamp Number
+ * @param settings.maxUses Number
+ * @param settings.clearKey Boolean
+ * @param settings.allowHtml Boolean
+ * @param settings.passwd String
+ * @param settings.type String (Not in linked documentation, use one_time_url for a session url or leave blank for a login key)
+ * @param callback
+ */
+User.prototype.createLoginKey = async function (settings, callback) {
+    var options = {
+      action: 'create',
+      keyname: settings.keyname,
+      key: settings.key,
+      key2: settings.key2,
+      never_expires: settings.neverExpires ? 'yes':'no',
+      expiry_timestamp: settings.expiryTimestamp,
+      max_uses: settings.maxUses,
+      clear_key: settings.clearKey ? 'yes':'no',
+      allow_html: settings.allowHtml ? 'yes':'no',
+      passwd: settings.passwd,
+      type: settings.type,
+      json: 'yes'
+    };
+
+    // Add optional properties for permissions
+    for(let prop in settings)
+      if(props.startsWith('select'))
+        options[prop] = settings[prop];
+
+    // Remove unused options
+    for(let prop in options)
+      if(options[prop] === null)
+        delete options[prop];
+
+    options = extend(options);
+
+    var createOptions = {
+        command: '/CMD_API_LOGIN_KEYS',
+        method: 'GET',
+        client: this,
+        body: options
+    };
+
+    return utils.modem(createOptions, callback);
+};
+
 
 
 module.exports = User;
