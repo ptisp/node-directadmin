@@ -10,9 +10,30 @@ Node.js module for [DirectAdmin](https://www.directadmin.com/)
 
  * Tests are implemented using `mocha` and `chai`. Run them with `npm test`.
 
+## Options
+- `forceJsonRequests` - This forces `json=yes` on all API calls. This will change the format returned by some functions. This is recommended on **new projects** (or existing ones if you feel like possibly introducing some bugs). This only defaults to `false` for backwards compatibility.
+
+_Self explanatory_
+- `username`
+- `password`
+- `serverUrl`
+- `port`
+
 ## Examples
+```js
+let DirectAdmin = require('directadmin');
+let da = new DirectAdmin({
+    username: 'admin',
+    password: 'password',
+    serverUrl: 'https://example.com',
+    port: '2222',
+    forceJsonRequests: true
+})
+```
 
 Check the examples folder for more specific use cases examples.
+
+See the [DirectAdmin documentation](https://www.directadmin.com/api.html) more info. Keep in mind that lots of functionality is not documented by DirectAdmin. Chrome dev tools are a good way to find undocumented API calls.
 
 ## License
 
