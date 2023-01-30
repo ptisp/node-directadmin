@@ -1,30 +1,24 @@
-var fs = require('fs');
-var libPath = __dirname + '/modules';
+const fs = require("fs");
+const path = require("path");
 
-var DIRECTADMIN = function (options) {
-    var _this = this;
+const modules = require("./modules/index.js");
 
-    this.utils = require('./lib/utils');
+class DIRECTADMIN {
+  constructor(options) {
+    this.utils = require("./lib/utils");
 
-    ['username', 'serverUrl'].forEach(function (required) {
-        if (!options[required]) {
-            throw new Error('options.' + required + ' is a required argument.');
-        }
-    });
+    const requiredOptions = ["username", "serverUrl"];
+    for (const required of requiredOptions)
+      if (!options[required])
+        throw new Error(`options.${required} is a required argument.`);
 
     this.config = options;
     this.authorized = false;
 
     // Add all the modules
-    var files = fs.readdirSync(libPath);
-    var i = 0;
-    var len = files.length;
-    while (i < len) {
-        var name = files[i].replace('.js', '');
-        var Item = require(libPath + '/' + name);
-        _this[name] = new Item(this.config);
-        i++;
-    }
-};
+    for (const name in modules)
+      this[name] = new modules[name](this.config);
+  }
+}
 
 module.exports = DIRECTADMIN;
